@@ -16,7 +16,7 @@ namespace QLSV_3layers
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDSSV());// set form chay dau tien la form dssv
+            Application.Run(new frmMain());// set form chay dau tien la form Main
         }
     }
 }

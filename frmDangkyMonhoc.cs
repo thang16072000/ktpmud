@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace QLSV_3layers
 {
-    public partial class frmWelcome : Form
+    public partial class frmDangkyMonhoc : Form
     {
-        public frmWelcome()
+        public frmDangkyMonhoc( string masv)
         {
             InitializeComponent();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private string mavs;
+        private void frmDangkyMonhoc_Load(object sender, EventArgs e)
         {
 
         }

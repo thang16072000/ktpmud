@@ -17,6 +17,8 @@ namespace QLSV_3layers
 
         private DataTable dt;
         private SqlCommand cmd;
+        //private object para;
+
         public Database()
         {
             try
@@ -30,14 +32,20 @@ namespace QLSV_3layers
             }
         }
 
-        
 
-        public DataTable SelectData(string sql)
+
+        public DataTable SelectData(string sql, List<CustomParameter> lstPara)
         {
             try
             {
                 conn.Open();
                 cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;// set command type cho cmd
+
+                foreach(var para in lstPara) //gasn casc tham so cho cmd
+                {
+                    cmd.Parameters.AddWithValue(para.key, para.value);
+                }
                 dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 return dt;
@@ -58,6 +66,7 @@ namespace QLSV_3layers
             {
                 conn.Open(); // mở kết nối
                 cmd = new SqlCommand(sql, conn); // truyền giá trị vào cmd
+               
                 dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());// thực thi câu lệnh
                 return dt.Rows[0];

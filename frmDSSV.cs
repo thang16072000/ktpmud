@@ -16,16 +16,25 @@ namespace QLSV_3layers
         {
             InitializeComponent();
         }
-
+        private string tukhoa = "";
         private void frmDSSV_Load(object sender, EventArgs e)
         {
             LoadDSSV();
         }
+       
         private void LoadDSSV()
         {
-          //  List<CustomParameter> lstPara = new List<CustomParameter>();
+            List<CustomParameter> lstPara = new List<CustomParameter>();
+
+            lstPara.Add(new CustomParameter()
+            {
+                key = "@tukhoa",
+
+                value = tukhoa
+
+            }) ;
             //load all danh sach sinh vien khi form dc load 
-            dgvSinhVien.DataSource = new Database().SelectData("exec SelectAllSinhVien");
+            dgvSinhVien.DataSource = new Database().SelectData("SelectAllSinhVien",lstPara);
             // dat ten cot 
             dgvSinhVien.Columns["masinhvien"].HeaderText = "Mã SV";
             dgvSinhVien.Columns["hoten"].HeaderText = "Họ tên";
@@ -56,6 +65,13 @@ namespace QLSV_3layers
         {
             new frmSinhVien(null).ShowDialog();// nếu thêm mới sinh viên => msv null
 
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+
+            tukhoa = txtTukhoa.Text;
+            LoadDSSV();
         }
     }
 }

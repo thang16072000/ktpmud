@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QLSV_3layers
 {
-    public partial class frmWelcome : Form
+    public partial class frmDsMHDaDky : Form
     {
-        public frmWelcome()
+        public frmDsMHDaDky()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

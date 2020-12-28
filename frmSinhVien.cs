@@ -23,11 +23,11 @@ namespace QLSV_3layers
         {
             if (string.IsNullOrEmpty(msv)) // nếu msv không có thì thêm mới sv
             {
-                this.Text = "Thêm mới sinh viên ";
+                this.Text = "Thêm mới ";
             }    
             else
             {
-                this.Text = "Cập nhật thông tin sinh viên";
+                this.Text = "Cập nhật thông tin sv";
                 // lấy thông tin chi tiết của 1 sinh viên dựa vào msv
                 //msv là mã sinh viên đã đưuọc triuyeefn từ form dssv
                 var r = new Database().Select("selectSV '"+msv+"'");
@@ -77,7 +77,7 @@ namespace QLSV_3layers
 
             }catch(Exception)
             {
-                MessageBox.Show("Ngày sinh không hợp lệ ");
+                MessageBox.Show("Định dạng ngày sinh  không hợp lệ ");
                 mtbNgaysinh.Select();
                 return;
             }
@@ -154,17 +154,17 @@ namespace QLSV_3layers
             {
                 if (string.IsNullOrEmpty(msv)) // nếu thêm mới
                 {
-                    MessageBox.Show("Thêm mới sinh viên thành công");
+                    MessageBox.Show("Thêm mới sv thành công");
                 }
                 else //nếu cập nhật
                 {
-                    MessageBox.Show("Cập nhật thông tin sinh viên thành công");
+                    MessageBox.Show("Cập nhật thông tin sv thành công");
                 }
                 this.Dispose(); //đóng forem sau khi thực thi thành công
             }
             else // nếu không thành công
             {
-                MessageBox.Show("Thực thi thất bại");
+                MessageBox.Show("Thất bại");
             }                
         }
     }
